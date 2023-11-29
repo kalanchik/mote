@@ -1,0 +1,67 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --start-paused -d n74x89ukuknnu4xc --devtools-server-address http://127.0.0.1:9100/ --target /Users/macbook/flutter_app/mote_app/lib/main.dart
+
+## exception
+
+HttpException: HttpException: Connection closed before full header was received, uri = http://127.0.0.1:56567/ah1UwNqEORM=/ws
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.16.0, on macOS 14.1.1 23B81 darwin-x64, locale ru-RU)
+    • Flutter version 3.16.0 on channel stable at /Users/macbook/FlutterDev/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision db7ef5bf9f (8 days ago), 2023-11-15 11:25:44 -0800
+    • Engine revision 74d16627b9
+    • Dart version 3.2.0
+    • DevTools version 2.28.2
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    • Android SDK at /Users/macbook/Library/Android/sdk
+    • Platform android-34, build-tools 34.0.0
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b829.9-10027231)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 15.0)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 15A240d
+    • CocoaPods version 1.13.0
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 2022.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b829.9-10027231)
+
+[✓] IntelliJ IDEA Community Edition (version 2023.2.5)
+    • IntelliJ at /Applications/IntelliJ IDEA CE.app
+    • Flutter plugin version 76.3.4
+    • Dart plugin version 232.10072.19
+
+[✓] VS Code (version 1.84.2)
+    • VS Code at /Users/macbook/Desktop/Visual Studio Code.app/Contents
+    • Flutter extension version 3.76.0
+
+[✓] Connected device (3 available)
+    • M2103K19Y (mobile) • n74x89ukuknnu4xc • android-arm64  • Android 13 (API 33)
+    • macOS (desktop)    • macos            • darwin-x64     • macOS 14.1.1 23B81 darwin-x64
+    • Chrome (web)       • chrome           • web-javascript • Google Chrome 119.0.6045.159
+
+[✓] Network resources
+    • All expected network resources are available.
+
+• No issues found!
+```
