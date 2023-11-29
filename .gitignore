@@ -1,3 +1,6 @@
 /mote_app/build/
 /mote_web/build/
 /mote_app/installers/
+/mote_app/android/
+/mote_app/ios/
+/mote_app/.dart_tool/
