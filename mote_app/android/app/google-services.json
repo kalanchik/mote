@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777659658911",
+    "project_id": "mote-fe0b0",
+    "storage_bucket": "mote-fe0b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777659658911:android:fecba7509af7529abfe8aa",
+        "android_client_info": {
+          "package_name": "com.example.mote_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQEY51kvJ3XKG1mAjsKDAWnwGkJ7N0YDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
