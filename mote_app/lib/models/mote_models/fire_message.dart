@@ -9,6 +9,7 @@ import 'package:mote_app/models/mote_models/fire_reply_message.dart';
 
 part 'fire_message.g.dart';
 
+@JsonSerializable()
 class FireMessage extends Equatable {
   /// Provides id
   final String id;

@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mote_app/models/chat/last_message.dart';
 
 part 'fire_chat.g.dart';
 

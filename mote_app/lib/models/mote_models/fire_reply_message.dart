@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'fire_reply_message.g.dart';
 
+@JsonSerializable()
 class FireReplyMessage {
   /// Provides reply message.
   final String message;
