@@ -1,9 +1,6 @@
 import 'package:chatview/chatview.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'fire_reply_message.g.dart';
-
-@JsonSerializable()
 class FireReplyMessage {
   /// Provides reply message.
   final String message;
@@ -31,7 +28,35 @@ class FireReplyMessage {
   });
 
   factory FireReplyMessage.fromJson(Map<String, dynamic> json) =>
-      _$FireReplyMessageFromJson(json);
+      FireReplyMessage(
+        messageId: json['messageId'] as String? ?? '',
+        message: json['message'] as String? ?? '',
+        replyTo: json['replyTo'] as String? ?? '',
+        replyBy: json['replyBy'] as String? ?? '',
+        messageType:
+            $enumDecodeNullable(_$MessageTypeEnumMap, json['messageType']) ??
+                MessageType.text,
+        voiceMessageDuration: json['voiceMessageDuration'] == null
+            ? null
+            : Duration(microseconds: json['voiceMessageDuration'] as int),
+      );
 
   Map<String, dynamic> toJson() => _$FireReplyMessageToJson(this);
+
+  Map<String, dynamic> _$FireReplyMessageToJson(FireReplyMessage instance) =>
+      <String, dynamic>{
+        'message': instance.message,
+        'replyBy': instance.replyBy,
+        'replyTo': instance.replyTo,
+        'messageType': _$MessageTypeEnumMap[instance.messageType]!,
+        'voiceMessageDuration': instance.voiceMessageDuration?.inMicroseconds,
+        'messageId': instance.messageId,
+      };
 }
+
+const _$MessageTypeEnumMap = {
+  MessageType.image: 'image',
+  MessageType.text: 'text',
+  MessageType.voice: 'voice',
+  MessageType.custom: 'custom',
+};

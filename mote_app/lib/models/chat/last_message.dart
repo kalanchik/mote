@@ -1,9 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-part 'last_message.g.dart';
-
-@JsonSerializable()
 class LastMessage {
   LastMessage({
     required this.message,
@@ -13,8 +9,16 @@ class LastMessage {
   final String message;
   final DateTime createdAt;
 
-  factory LastMessage.fromJson(Map<String, dynamic> json) =>
-      _$LastMessageFromJson(json);
+  factory LastMessage.fromJson(Map<String, dynamic> json) => LastMessage(
+        message: json['message'] as String,
+        createdAt: (json['createdAt'] as Timestamp).toDate(),
+      );
 
   Map<String, dynamic> toJson() => _$LastMessageToJson(this);
+
+  Map<String, dynamic> _$LastMessageToJson(LastMessage instance) =>
+      <String, dynamic>{
+        'message': instance.message,
+        'createdAt': instance.createdAt,
+      };
 }
