@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:mote_app/router/router.dart';
 import 'package:mote_app/utils/setColors/setcolors.dart';
 
 class MeetsHeader extends StatelessWidget {
@@ -76,7 +78,7 @@ class MeetsHeader extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    changeIndex(2);
+                    AutoRouter.of(context).push(const CreateMeetRoute());
                   },
                   child: Container(
                     height: 40,

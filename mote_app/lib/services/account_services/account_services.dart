@@ -23,6 +23,27 @@ class AccountServices {
     return null;
   }
 
+  // Получить информацию из profileInfo по заданным ключам
+  static Future<Map<String, dynamic>?> getInfoFromProfile(
+    String uid,
+    List<String> keys,
+  ) async {
+    final data = await getUserInfo(keys: ['profileInfo'], uid: uid);
+    final profileInfo = data['profileInfo'] as Map<String, dynamic>;
+    final info = <String, dynamic>{
+      'uid': uid,
+    };
+    if (data.isEmpty) {
+      return null;
+    }
+    for (var key in keys) {
+      if (profileInfo.containsKey(key)) {
+        info[key] = profileInfo[key];
+      }
+    }
+    return info;
+  }
+
   static Future<Map<String, String>> getUserNameAndPhoto(String uid) async {
     final data = await getUserInfo(keys: ['name', 'profileInfo'], uid: uid);
     if (data.isEmpty) {

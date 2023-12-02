@@ -2,14 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mote_app/models/meets_models.dart';
-import 'package:mote_app/widgets/custom_elevated_buttom.dart';
 
 class MeetsUploadPhotoContent extends StatefulWidget {
-  final MeetsModels meet;
-  final void Function(MeetsModels meet) copmplete;
-  const MeetsUploadPhotoContent(
-      {super.key, required this.copmplete, required this.meet});
+  final void Function(File photo) copmplete;
+  const MeetsUploadPhotoContent({super.key, required this.copmplete});
 
   @override
   State<MeetsUploadPhotoContent> createState() =>
@@ -21,9 +17,27 @@ class _MeetsUploadPhotoContentState extends State<MeetsUploadPhotoContent> {
   File? meetImage;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Flexible(
+                child: Text(
+                  'Теперь выбери фотографию для встречи',
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.headlineMedium,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -37,30 +51,44 @@ class _MeetsUploadPhotoContentState extends State<MeetsUploadPhotoContent> {
         const SizedBox(
           height: 10,
         ),
-        Text(
-          widget.meet.name,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
         const SizedBox(
           height: 30,
         ),
-        ElevatedButton(
-          child: Text(isUpload ? 'Изменить фото' : 'Загрузить фото'),
-          onPressed: () async {
-            await _pickImageFromGallery();
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Expanded(
+                child: isUpload
+                    ? OutlinedButton(
+                        onPressed: () {}, child: const Text('Изменить фото'))
+                    : ElevatedButton(
+                        child:
+                            Text(isUpload ? 'Изменить фото' : 'Загрузить фото'),
+                        onPressed: () async {
+                          await _pickImageFromGallery();
+                        },
+                      ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
           height: 20,
         ),
         isUpload
-            ? CustomElevatedButton(
-                labelText: 'Создать встречу',
-                onTap: () => widget.copmplete(widget.meet),
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              widget.copmplete(meetImage!);
+                            },
+                            child: const Text('Загрузить')))
+                  ],
+                ),
               )
             : const SizedBox.shrink(),
       ],
@@ -73,7 +101,7 @@ class _MeetsUploadPhotoContentState extends State<MeetsUploadPhotoContent> {
     setState(() {
       isUpload = true;
       meetImage = File(image.path);
-      widget.meet.imageFile = meetImage;
+      // widget.meet.imageFile = meetImage;
     });
   }
 }

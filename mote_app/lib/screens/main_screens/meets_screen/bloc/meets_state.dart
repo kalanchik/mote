@@ -29,11 +29,11 @@ class MeetsCreatingMeet extends MeetsState {
 }
 
 class MeetsUploadPhoto extends MeetsState {
-  final MeetsModels meet;
+  final String meetId;
 
-  MeetsUploadPhoto({required this.meet});
+  MeetsUploadPhoto({required this.meetId});
   @override
-  List<Object?> get props => [meet];
+  List<Object?> get props => [meetId];
 }
 
 class MeetsCreatedMeet extends MeetsState {

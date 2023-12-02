@@ -37,9 +37,7 @@ class _MeetsDescFieldState extends State<MeetsDescField> {
             height: 5,
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-            ),
+            padding: const EdgeInsets.symmetric(),
             child: ConstrainedBox(
               constraints: const BoxConstraints(
                 maxHeight: 300,

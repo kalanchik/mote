@@ -65,6 +65,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CreateDateScreen(),
       );
     },
+    CreateMeetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CreateMeetScreen(),
+      );
+    },
     DateMapRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -390,6 +396,20 @@ class CreateDateRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CreateDateRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CreateMeetScreen]
+class CreateMeetRoute extends PageRouteInfo<void> {
+  const CreateMeetRoute({List<PageRouteInfo>? children})
+      : super(
+          CreateMeetRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateMeetRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

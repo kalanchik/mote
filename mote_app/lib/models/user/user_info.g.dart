@@ -6,14 +6,15 @@ part of 'user_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserInfo _$UserInfoFromJson(Map<String, dynamic> json) => UserInfo(
+MoteUserInfo _$MoteUserInfoFromJson(Map<String, dynamic> json) => MoteUserInfo(
       uid: json['uid'] as String,
       name: json['name'] as String,
       mainPhoto: json['mainPhoto'] as String,
-      age: json['age'] as String,
+      age: json['age'] as int,
     );
 
-Map<String, dynamic> _$UserInfoToJson(UserInfo instance) => <String, dynamic>{
+Map<String, dynamic> _$MoteUserInfoToJson(MoteUserInfo instance) =>
+    <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
       'mainPhoto': instance.mainPhoto,

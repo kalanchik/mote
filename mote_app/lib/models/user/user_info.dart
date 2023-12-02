@@ -3,8 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user_info.g.dart';
 
 @JsonSerializable()
-class UserInfo {
-  UserInfo({
+class MoteUserInfo {
+  MoteUserInfo({
     required this.uid,
     required this.name,
     required this.mainPhoto,
@@ -14,10 +14,10 @@ class UserInfo {
   final String uid;
   final String name;
   final String mainPhoto;
-  final String age;
+  final int age;
 
-  factory UserInfo.fromJson(Map<String, dynamic> json) =>
-      _$UserInfoFromJson(json);
+  factory MoteUserInfo.fromJson(Map<String, dynamic> json) =>
+      _$MoteUserInfoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserInfoToJson(this);
+  Map<String, dynamic> toJson() => _$MoteUserInfoToJson(this);
 }

@@ -4,12 +4,10 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mote_app/models/meets_models.dart';
 import 'package:mote_app/screens/main_screens/meets_screen/bloc/meets_bloc.dart';
-import 'package:mote_app/screens/main_screens/meets_screen/widgets/create_meets_content.dart';
 import 'package:mote_app/screens/main_screens/meets_screen/widgets/find_meets_content.dart';
 import 'package:mote_app/screens/main_screens/meets_screen/widgets/loading_content.dart';
 import 'package:mote_app/screens/main_screens/meets_screen/widgets/meets_header.dart';
 import 'package:mote_app/screens/main_screens/meets_screen/widgets/my_meets_content.dart';
-import 'package:mote_app/screens/main_screens/meets_screen/widgets/upload_photo_content.dart';
 import 'package:mote_app/screens/main_screens/news_screen/widget/news_drawer.dart';
 import 'package:mote_app/widgets/custom_elevated_buttom.dart';
 
@@ -45,12 +43,7 @@ class _MeetsScreenState extends State<MeetsScreen>
             return const MeetsLoadingContent(labelText: 'Загружаем встречи');
           }
           if (state is MeetsUploadPhoto) {
-            return MeetsUploadPhotoContent(
-              copmplete: (MeetsModels meet) {
-                _bloc.add(MeetsSaveMeetsEvent(meet: meet));
-              },
-              meet: state.meet,
-            );
+            return Container();
           }
           if (state is MeetsCreatingMeet) {
             return const MeetsLoadingContent(labelText: 'Создаем встречу');
@@ -122,6 +115,7 @@ class _MeetsScreenState extends State<MeetsScreen>
                   height: 10,
                 ),
                 _buildContent(
+                  bloc: _bloc,
                   index: pageIndex,
                   myMeetsList: state.myMeetsList,
                   findMeetsList: state.findMeetsList,
@@ -139,6 +133,7 @@ class _MeetsScreenState extends State<MeetsScreen>
     required int? index,
     required List<MeetsModels> myMeetsList,
     required List<MeetsModels> findMeetsList,
+    required MeetsBloc bloc,
   }) {
     if (index == 0) {
       return MyMeetsContent(
@@ -151,11 +146,7 @@ class _MeetsScreenState extends State<MeetsScreen>
       );
     }
     if (index == 2) {
-      return CreateMeetsContent(
-        createMeet: (MeetsModels meet) {
-          _bloc.add(MeetsCreateMeetEvent(meet: meet));
-        },
-      );
+      return Container();
     }
     return Container();
   }

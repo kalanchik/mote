@@ -25,8 +25,8 @@ class MeetModel {
   final int maxMembers;
   final DateTime meetDate;
   final String meetTime;
-  final List<UserInfo> users;
-  final UserInfo creator;
+  final List<Map<String, dynamic>> users;
+  final MoteUserInfo creator;
   final String meetPhoto;
 
   factory MeetModel.fromJson(Map<String, dynamic> json) => MeetModel(
@@ -39,9 +39,9 @@ class MeetModel {
         meetDate: DateTime.parse(json['meetDate'] as String),
         meetTime: json['meetTime'] as String,
         users: (json['users'] as List<dynamic>)
-            .map((e) => UserInfo.fromJson(e as Map<String, dynamic>))
+            .map((e) => e as Map<String, dynamic>)
             .toList(),
-        creator: UserInfo.fromJson(json['creator'] as Map<String, dynamic>),
+        creator: MoteUserInfo.fromJson(json['creator'] as Map<String, dynamic>),
         meetPhoto: json['meetPhoto'] as String,
       );
 
@@ -55,10 +55,10 @@ class MeetModel {
         'lat': instance.lat,
         'long': instance.long,
         'maxMembers': instance.maxMembers,
-        'meetDate': instance.meetDate.toIso8601String(),
+        'meetDate': instance.meetDate,
         'meetTime': instance.meetTime,
         'users': instance.users,
-        'creator': instance.creator,
+        'creator': instance.creator.toJson(),
         'meetPhoto': instance.meetPhoto,
       };
 }

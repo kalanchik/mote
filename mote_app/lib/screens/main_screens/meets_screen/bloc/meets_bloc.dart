@@ -14,17 +14,10 @@ class MeetsBloc extends Bloc<MeetsEvent, MeetsState> {
         findMeetsList: [],
       ));
     });
-    on<MeetsCreateMeetEvent>((event, emit) {
-      // emit(MeetsUploadPhoto(meet: event.meet));
-    });
+    on<MeetsCreateMeetEvent>((event, emit) async {});
     on<MeetsSaveMeetsEvent>((event, emit) async {
-      // emit(MeetsCreatingMeet());
-      // event.meet.addNewUser(user: TestUsers.anna);
-      // event.meet.addNewUser(user: TestUsers.zlata);
-      // TestUsers.myMeetsList.add(event.meet);
-      // TestUsers.findMeetsList.add(event.meet);
-      // await Future.delayed(const Duration(seconds: 2));
-      // emit(MeetsCreatedMeet());
+      emit(MeetsCreatingMeet());
+      emit(MeetsCreatedMeet());
     });
   }
 }

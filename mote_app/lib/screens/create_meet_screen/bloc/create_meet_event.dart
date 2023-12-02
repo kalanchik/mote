@@ -1,14 +1,9 @@
-part of 'meets_bloc.dart';
+part of 'create_meet_bloc.dart';
 
-abstract class MeetsEvent extends Equatable {}
+abstract class CreateMeetEvent extends Equatable {}
 
-class MeetsLoadingMeets extends MeetsEvent {
-  @override
-  List<Object> get props => [];
-}
-
-class MeetsCreateMeetEvent extends MeetsEvent {
-  MeetsCreateMeetEvent({
+class CreateMeetCreateEvent extends CreateMeetEvent {
+  CreateMeetCreateEvent({
     required this.id,
     required this.name,
     required this.desc,
@@ -31,6 +26,7 @@ class MeetsCreateMeetEvent extends MeetsEvent {
   @override
   List<Object?> get props => [
         id,
+        name,
         desc,
         lat,
         long,
@@ -40,17 +36,14 @@ class MeetsCreateMeetEvent extends MeetsEvent {
       ];
 }
 
-class MeetsSaveMeetsEvent extends MeetsEvent {
+class CreateMeetUploadPhotoEvent extends CreateMeetEvent {
+  CreateMeetUploadPhotoEvent({
+    required this.id,
+    required this.photo,
+  });
   final String id;
+  final File photo;
 
-  MeetsSaveMeetsEvent({required this.id});
   @override
-  List<Object?> get props => [id];
-}
-
-class MeetSetPhotoEvent extends MeetsEvent {
-  MeetSetPhotoEvent({required this.meetId});
-  final String meetId;
-  @override
-  List<Object?> get props => [meetId];
+  List<Object?> get props => [id, photo];
 }
