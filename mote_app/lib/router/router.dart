@@ -17,6 +17,7 @@ import 'package:mote_app/screens/dates_screen/view/dates_screen.dart';
 import 'package:mote_app/screens/dating_screen/view/dating_screen.dart';
 import 'package:mote_app/screens/find_anon_chat_screen/view/find_anon_chat_screen.dart';
 import 'package:mote_app/screens/find_gender_screen/view/find_gender_screen.dart';
+import 'package:mote_app/screens/find_meet_screen/view/screen.dart';
 import 'package:mote_app/screens/forgot_pass_screen/view/forgot_pass_screen.dart';
 import 'package:mote_app/screens/main_screens/friendship_screen/view/friendship_screen.dart';
 import 'package:mote_app/screens/main_screens/home_screen/home_screen.dart';
@@ -72,6 +73,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: RegisterRoute.page, path: '/register'),
         AutoRoute(page: CreateChatRoute.page, path: '/createchat'),
         AutoRoute(page: CreateMeetRoute.page, path: '/createMeet'),
+        AutoRoute(page: FindMeetRoute.page, path: '/findmeet'),
         AutoRoute(
           page: AnonMessangerRoute.page,
           path: '/anonmessanger',

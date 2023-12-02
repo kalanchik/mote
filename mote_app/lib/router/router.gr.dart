@@ -101,6 +101,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const FindGenderScreen(),
       );
     },
+    FindMeetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FindMeetScreen(),
+      );
+    },
     ForgotPassRoute.name: (routeData) {
       final args = routeData.argsAs<ForgotPassRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -480,6 +486,20 @@ class FindGenderRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'FindGenderRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FindMeetScreen]
+class FindMeetRoute extends PageRouteInfo<void> {
+  const FindMeetRoute({List<PageRouteInfo>? children})
+      : super(
+          FindMeetRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FindMeetRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
