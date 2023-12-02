@@ -53,11 +53,47 @@ class _CreateMeetScreenState extends State<CreateMeetScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(),
       body: BlocBuilder<CreateMeetBloc, CreateMeetState>(
         bloc: _bloc,
         builder: (context, state) {
+          if (state is CreateMeetCompleteState) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '🎉 Поздравляем 🎉\nВстреча успешно создана',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.headlineMedium,
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('К встречам'),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            );
+          }
           if (state is CreateMeetCreateMeet) {
             return Center(
               child: LoadingAnimationWidget.twoRotatingArc(
