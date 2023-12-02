@@ -26,28 +26,6 @@ class MeetsHeader extends StatelessWidget {
             children: AnimateList(
               effects: [],
               children: [
-                GestureDetector(
-                  onTap: () {
-                    changeIndex(0);
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.red,
-                          Theme.of(context).primaryColor,
-                        ],
-                      ),
-                    ),
-                    child: Icon(
-                      Ionicons.arrow_undo_sharp,
-                      color: TSetColor.buttonTextColor(context),
-                    ),
-                  ),
-                ),
                 const SizedBox(
                   width: 8,
                 ),
