@@ -1,3 +1,3 @@
 # mote
 
-The number of lines of code in Dart is over 27,000.
+The number of lines of code in Dart is over 31,256.
